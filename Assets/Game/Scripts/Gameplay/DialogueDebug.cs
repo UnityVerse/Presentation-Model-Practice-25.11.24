@@ -15,5 +15,15 @@ namespace SampleGame
         [Inject]
         [ShowInInspector, HideInEditorMode]
         private DialoguePopupShower popupShower;
+
+       
+        public void Show()
+        {
+        }
+
+        public void Close()
+        {
+        }
+
     }
 }

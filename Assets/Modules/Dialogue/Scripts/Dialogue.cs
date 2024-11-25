@@ -31,12 +31,18 @@ namespace Game.GameEngine
 
         public Dialogue(DialogueConfig config)
         {
-            if (!config.FindEntryNode(out var node))
+            this.config = config;
+            SetEntryNode();
+
+        }
+
+        private void SetEntryNode()
+        {
+            if (!this.config.FindEntryNode(out var node))
             {
                 throw new Exception("Entry point is absent!");
             }
 
-            this.config = config;
             this.currentNode = node;
         }
 
@@ -49,6 +55,11 @@ namespace Game.GameEngine
             }
 
             return false;
+        }
+
+        public void Reset()
+        {
+            SetEntryNode();
         }
     }
 }

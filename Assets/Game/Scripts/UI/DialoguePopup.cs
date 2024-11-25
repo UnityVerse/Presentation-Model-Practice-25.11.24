@@ -25,6 +25,7 @@ namespace Game.Scripts.UI
             presenter.OnStateChanged += UpdateState;
             presenter.OnDialogFinished += Hide;
             gameObject.SetActive(true);
+            presenter.ResetDialogue();
             UpdateState();
         }
 

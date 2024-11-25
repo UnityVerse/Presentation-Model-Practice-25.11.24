@@ -9,7 +9,11 @@ namespace Game.Scripts.UI
 
         public override void InstallBindings()
         {
-            
+
+            Container
+                .BindInterfacesAndSelfTo<DialoguePopupPresenter>()
+                .AsSingle().NonLazy();
+
             Container
                 .Bind<DialoguePopup>()
                 .FromInstance(dialoguePopup)
@@ -18,6 +22,7 @@ namespace Game.Scripts.UI
             Container
                 .BindInterfacesAndSelfTo<DialoguePopupShower>()
                 .AsSingle();
+
         }
     }
 }
