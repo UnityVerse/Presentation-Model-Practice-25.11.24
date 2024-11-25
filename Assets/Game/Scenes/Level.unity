@@ -867,6 +867,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8274450966734460959}
     m_Modifications:
+    - target: {fileID: 904667749947029423, guid: 75fc28e2abb46404987d103d9ce5bb30, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1366350498785767438, guid: 75fc28e2abb46404987d103d9ce5bb30, type: 3}
       propertyPath: m_Name
       value: ProductPopup
