@@ -21,7 +21,7 @@
 			OnShow?.Invoke();
 		}
 
-		public void Consume()
+		public void TryConsume()
 		{
 			Debug.Log("Consumed");
 		}

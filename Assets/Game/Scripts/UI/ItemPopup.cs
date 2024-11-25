@@ -4,12 +4,13 @@ namespace SampleGame
     using Modules.Inventories;
     using TMPro;
     using UnityEngine;
+    using UnityEngine.Serialization;
     using UnityEngine.UI;
     using Zenject;
 
     public sealed class ItemPopup : MonoBehaviour, IInitializable, IDisposable
     {
-        [SerializeField] Button _buyButton;
+        [SerializeField] Button _consumeButton;
         [SerializeField] Button _closeButton;
         
         [SerializeField] Image _icon;
@@ -24,7 +25,7 @@ namespace SampleGame
         {
             _presenter.OnShow += Show;
             
-            _buyButton.onClick.AddListener( OnButtonClicked );
+            _consumeButton.onClick.AddListener( OnButtonClicked );
             _closeButton.onClick.AddListener( Close );
         }
 
@@ -32,7 +33,7 @@ namespace SampleGame
         {
             _presenter.OnShow -= Show;
             
-            _buyButton.onClick.RemoveListener( OnButtonClicked );
+            _consumeButton.onClick.RemoveListener( OnButtonClicked );
             _closeButton.onClick.RemoveListener( Close );
         }
 
@@ -55,6 +56,6 @@ namespace SampleGame
             _countText.text = _presenter.Count;
         }
         
-        void OnButtonClicked() => _presenter.Consume();
+        void OnButtonClicked() => _presenter.TryConsume();
     }
 }

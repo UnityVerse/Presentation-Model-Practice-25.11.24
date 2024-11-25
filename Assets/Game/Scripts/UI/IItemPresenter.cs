@@ -13,6 +13,6 @@ namespace SampleGame
         string Description { get; }
         string Count { get;}
         
-        void Consume();
+        void TryConsume();
     }
 }
