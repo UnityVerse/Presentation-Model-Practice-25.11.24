@@ -1,13 +1,17 @@
-using System;
 using Modules.Inventories;
 
 namespace SampleGame
 {
+    using UnityEngine;
+    using Zenject;
+
     public sealed class ItemPopupShower
     {
+        [Inject]  ItemPresenterMock _itemPresenterMock;
+        
         public void Show(InventoryItem item)
         {
-            throw new NotImplementedException();
+            _itemPresenterMock.Show(item);
         }
     }
 }

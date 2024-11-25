@@ -1,9 +1,60 @@
-using UnityEngine;
-
 namespace SampleGame
 {
-    public sealed class ItemPopup : MonoBehaviour
+    using System;
+    using Modules.Inventories;
+    using TMPro;
+    using UnityEngine;
+    using UnityEngine.UI;
+    using Zenject;
+
+    public sealed class ItemPopup : MonoBehaviour, IInitializable, IDisposable
     {
-        //TODO:
+        [SerializeField] Button _buyButton;
+        [SerializeField] Button _closeButton;
+        
+        [SerializeField] Image _icon;
+        
+        [SerializeField] TextMeshProUGUI _titleText;
+        [SerializeField] TextMeshProUGUI _descriptionText;
+        [SerializeField] TextMeshProUGUI _countText;
+     
+        [Inject] IItemPresenter _presenter;
+        
+        public void Initialize()
+        {
+            _presenter.OnShow += Show;
+            
+            _buyButton.onClick.AddListener( OnButtonClicked );
+            _closeButton.onClick.AddListener( Close );
+        }
+
+        public void Dispose()
+        {
+            _presenter.OnShow -= Show;
+            
+            _buyButton.onClick.RemoveListener( OnButtonClicked );
+            _closeButton.onClick.RemoveListener( Close );
+        }
+
+        void Show()
+        {
+            gameObject.SetActive( true );
+            Setup();
+        }
+
+        void Close()
+        {
+            gameObject.SetActive(false);
+        }
+
+        void Setup()
+        {
+            _icon.sprite = _presenter.Icon;
+            _titleText.text = _presenter.Title;
+            _descriptionText.text = _presenter.Description;
+            _countText.text = _presenter.Count;
+        }
+        
+        void OnButtonClicked() => _presenter.Consume();
     }
 }
