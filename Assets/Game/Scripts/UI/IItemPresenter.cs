@@ -1,4 +1,5 @@
 using System;
+using Modules.Inventories;
 using UnityEngine;
 
 namespace SampleGame
@@ -13,5 +14,7 @@ namespace SampleGame
         public string Description { get; }
         
         public void ConsumeClicked();
+        
+        void Display(InventoryItem item);
     }
 }

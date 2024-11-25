@@ -1,4 +1,5 @@
 using System;
+using Modules.Inventories;
 using UnityEngine;
 
 namespace SampleGame
@@ -18,6 +19,11 @@ namespace SampleGame
             Debug.Log("Consume Clicked");
             _count--;
             OnCountChanged?.Invoke();
+        }
+
+        public void Display(InventoryItem item)
+        {
+            throw new NotImplementedException();
         }
     }
 }

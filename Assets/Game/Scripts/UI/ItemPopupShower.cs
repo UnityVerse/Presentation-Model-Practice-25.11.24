@@ -5,9 +5,18 @@ namespace SampleGame
 {
     public sealed class ItemPopupShower
     {
+        private readonly IItemPresenter _presenter;
+
+        public ItemPopupShower(IItemPresenter presenter)
+        {
+            _presenter = presenter;
+        }
+        
         public void Show(InventoryItem item)
         {
-            throw new NotImplementedException();
+            _presenter.Display(item);
         }
+        
+        
     }
 }
