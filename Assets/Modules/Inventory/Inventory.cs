@@ -123,6 +123,7 @@ namespace Modules.Inventories
         }
 
         public IReadOnlyCollection<Cell> GetCells() => this.items.Values;
+        public Cell GetCell(InventoryItem item) => this.items.GetValueOrDefault(item);
 
         [Serializable]
         public sealed class Cell

@@ -1,7 +1,8 @@
 ﻿using System;
+using Modules.Inventories;
 using UnityEngine;
 
-public class ProductPopupPresentationMock : IProductPopupPresentation
+public class ItemPresenterMock : IItemPresenter
 {
 
     private int _count = 10;
@@ -19,5 +20,7 @@ public class ProductPopupPresentationMock : IProductPopupPresentation
     public string Title { get; } = "Test title";
     public string Count => _count.ToString();
     public bool CanConsume => _count > 0;
+    public void ChangeItem(InventoryItem item) => Debug.Log("Item Changed");
+
     public Sprite Icon { get; } = Resources.Load<Sprite>("icon");
 }

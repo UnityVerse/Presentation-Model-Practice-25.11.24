@@ -10,45 +10,42 @@ public class ProductPopupView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _count;
     [SerializeField] private Image _icon;
     [SerializeField] private Button _consumeButton;
-    private IProductPopupPresentation _presentation;
+    [SerializeField] private Button _closeButton;
+    
+    private IItemPresenter _presenter;
 
     [Inject]
-    public void Construct(IProductPopupPresentation presentation)
+    public void Construct(IItemPresenter presentation)
     {
-        _presentation = presentation;
+        _presenter = presentation;
     }
 
     private void HandleUpdateView()
     {
-        if (_presentation == null)
+        if (_presenter == null)
             return;
 
-        _title.text = _presentation.Title;
-        _description.text = _presentation.Description;
-        _count.text = _presentation.Count;
-        _icon.sprite = _presentation.Icon;
-        _consumeButton.interactable = _presentation.CanConsume;
+        _title.text = _presenter.Title;
+        _description.text = _presenter.Description;
+        _count.text = _presenter.Count;
+        _icon.sprite = _presenter.Icon;
+        _consumeButton.interactable = _presenter.CanConsume;
     }
-
-    private void Awake()
+    
+    public void Show()
     {
-        _consumeButton.onClick.AddListener(HandleConsumeButtonClick);
-    }
-
-    private void OnEnable()
-    {
-        _presentation.OnUpdate += HandleUpdateView;
+        _consumeButton.onClick.AddListener(_presenter.Consume);
+        _closeButton.onClick.AddListener(Hide);
+        _presenter.OnUpdate += HandleUpdateView;
         HandleUpdateView();
+        gameObject.SetActive(true);
     }
-
-    private void OnDisable()
+    
+    public void Hide()
     {
-        _presentation.OnUpdate += HandleUpdateView;
-    }
-
-
-    private void HandleConsumeButtonClick()
-    {
-        _presentation.Consume();
+        _closeButton.onClick.RemoveListener(Hide);
+        _consumeButton.onClick.RemoveListener(_presenter.Consume);
+        _presenter.OnUpdate -= HandleUpdateView;
+        gameObject.SetActive(false);
     }
 }

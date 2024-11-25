@@ -15,7 +15,7 @@ namespace SampleGame
         [Inject]
         [ShowInInspector, HideInEditorMode]
         private InventoryItemConsumer itemConsumer;
-
+        
         private void OnEnable()
         {
             this.itemConsumer.OnItemConsumed += this.OnItemConsumed;

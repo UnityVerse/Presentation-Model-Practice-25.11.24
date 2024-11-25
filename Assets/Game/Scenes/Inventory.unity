@@ -301,7 +301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4173924324186843191, guid: 01307a76bc32a4150b481aedc148c033, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -75.000015
+      value: -75.00003
       objectReference: {fileID: 0}
     - target: {fileID: 4173924324186843191, guid: 01307a76bc32a4150b481aedc148c033, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -453,6 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b776a73a7c37e7b479fe9c0e5a893fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  productPopupView: {fileID: 6027455495152936575}
 --- !u!1 &870947784
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +463,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 870947785}
+  - component: {fileID: 870947786}
   m_Layer: 0
   m_Name: '[UI]'
   m_TagString: Untagged
@@ -487,6 +489,18 @@ Transform:
   - {fileID: 8274450966734460959}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &870947786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870947784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503503ae713049fba035f2dbab1fe1e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &906546670
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,6 +689,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+--- !u!114 &1093209138 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2758162274448275246, guid: 75fc28e2abb46404987d103d9ce5bb30, type: 3}
+  m_PrefabInstance: {fileID: 7772350239421241344}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1269490005 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3672262115325699976, guid: 75fc28e2abb46404987d103d9ce5bb30, type: 3}
@@ -909,6 +934,7 @@ MonoBehaviour:
   _count: {fileID: 569401268}
   _icon: {fileID: 1269490005}
   _consumeButton: {fileID: 1609987252}
+  _closeButton: {fileID: 1093209138}
 --- !u!223 &6074588311329920176
 Canvas:
   m_ObjectHideFlags: 0
@@ -947,6 +973,10 @@ PrefabInstance:
     - target: {fileID: 1366350498785767438, guid: 75fc28e2abb46404987d103d9ce5bb30, type: 3}
       propertyPath: m_Name
       value: ProductPopup
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366350498785767438, guid: 75fc28e2abb46404987d103d9ce5bb30, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1902519625245352144, guid: 75fc28e2abb46404987d103d9ce5bb30, type: 3}
       propertyPath: m_Pivot.x
@@ -1026,6 +1056,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1902519625245352144, guid: 75fc28e2abb46404987d103d9ce5bb30, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758162274448275246, guid: 75fc28e2abb46404987d103d9ce5bb30, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
